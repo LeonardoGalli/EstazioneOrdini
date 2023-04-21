@@ -8,7 +8,7 @@ namespace EstazioneOrdini
 {
     public static class Func
     {
-
+        // git test 123
         public static float StringToFloat(string c)
         {
             try
