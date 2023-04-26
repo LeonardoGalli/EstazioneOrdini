@@ -1,5 +1,6 @@
 ﻿using EstazioneOrdini2.Model;
 using Oracle.ManagedDataAccess.Client;
+using Client;
 
 namespace EstazioneOrdini
 {
@@ -35,7 +36,7 @@ namespace EstazioneOrdini
                     vto.Commodity = reader["TIPO"].ToString();
                     vto.Retail_Price = Func.StringToFloat(reader["PREZZO"].ToString());
                     vto.Costo = Func.StringToFloat(reader["COSTO"].ToString());
-                    vto.Delivery_Date = reader["DATACONSEGNA"].ToString();
+                    vto.Delivery_Date = Utility.Utility.ProtexToDateTime(reader["DATACONSEGNA"].ToString()).ToString("dd/MM/yyyy");
                     vto.Made_In = reader["NAZIONE"].ToString();
                     vto.Color_Description = reader["DESCRIZIONECOLORE"].ToString();
                     vto.Composition = reader["COMPOSIZIONE"].ToString();

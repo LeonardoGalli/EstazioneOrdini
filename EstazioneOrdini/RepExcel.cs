@@ -26,12 +26,24 @@ namespace EstazioneOrdini
             Microsoft.Office.Interop.Excel.Workbook sheet = excel.Workbooks.Open(newFile);
             Microsoft.Office.Interop.Excel.Worksheet x = excel.ActiveSheet as Microsoft.Office.Interop.Excel.Worksheet;
 
+            x.Range["A1"].Value2 = "Style Code";
+            x.Range["B1"].Value2 = "Style Description";
+            x.Range["F1"].Value2 = "Age Range";
+            x.Range["K1"].Value2 = "Retaile Price";
+            x.Range["M1"].Value2 = "Delivery Date";
+            x.Range["N1"].Value2 = "Made In";
+            x.Range["O1"].Value2 = "Color Description";
+            x.Range["Q1"].Value2 = "Weight (g)";
+            x.Range["T1"].Value2 = "EAN Code";
+            x.Range["U1"].Value2 = "Codice Articolo OVS";
+            x.Range["V1"].Value2 = "Colore OVS";
 
             x.Range["A1:K1"].Interior.Color = Color.Yellow;
             x.Range["L1"].Interior.Color = Color.Gray;
             x.Range["M1:T1"].Interior.Color = Color.Yellow;
             x.Range["U1:V1"].Interior.Color = Color.Gray;
-            x.Range["A1:V1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            x.Range["W1"].Interior.Color = Color.Yellow;
+            x.Range["A1:W1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
             x.Range["C1"].ColumnWidth = 40;
 
             try
@@ -48,7 +60,7 @@ namespace EstazioneOrdini
                 int cellStartMerge = 2;
 
 
-                foreach (var item in lista.GroupBy(x => new { x.Ordine, x.Progressivo, x.Style_Code }).OrderBy(x => x.Key.Ordine))
+                foreach (var item in lista.GroupBy(x => new { x.Ordine, x.Style_Code }).OrderBy(x => x.Key.Ordine))
                 {
 
                     int itemsMerge = item.Count();
@@ -107,12 +119,10 @@ namespace EstazioneOrdini
                         }
                         cellStartMerge = valore_di_mezzo + 2;
                     }
-                   
-                    
-                    //else
-                    //{
-                    //    cellStartMerge = valore_di_mezzo + 2;
-                    //}
+                    else
+                    {
+                        cellStartMerge = valore_di_mezzo + 2;
+                    }
                 }
 
                 sheet.Close(true, Type.Missing, Type.Missing);

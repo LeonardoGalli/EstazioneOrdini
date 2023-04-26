@@ -26,4 +26,13 @@
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.100" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Client">
+      <HintPath>DLL\Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Utility">
+      <HintPath>DLL\Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
