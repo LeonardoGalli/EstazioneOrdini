@@ -8,7 +8,6 @@ namespace EstazioneOrdini
 {
     public static class Func
     {
-        // git test 123
         public static float StringToFloat(string c)
         {
             try
@@ -38,21 +37,6 @@ namespace EstazioneOrdini
             }
 
         }
-
-        //public static string StringToString(string c)
-        //{
-        //    try
-        //    {
-        //        string f = Convert.ToString(c);
-        //        return f;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return "0";
-        //    }
-
-        //}
 
     }
 }
