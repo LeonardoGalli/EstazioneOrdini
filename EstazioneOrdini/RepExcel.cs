@@ -60,6 +60,7 @@ namespace EstazioneOrdini
                 int cellStartMerge = 2;
 
 
+
                 foreach (var item in lista.GroupBy(x => new { x.Ordine, x.Style_Code }).OrderBy(x => x.Key.Ordine))
                 {
 
