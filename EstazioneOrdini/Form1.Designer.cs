@@ -42,6 +42,7 @@
             txtNomeFileExcel = new TextBox();
             label4 = new Label();
             btnCartella = new Button();
+            lblCarica = new Label();
             SuspendLayout();
             // 
             // txtNumOrdine
@@ -51,6 +52,7 @@
             txtNumOrdine.Name = "txtNumOrdine";
             txtNumOrdine.Size = new Size(212, 34);
             txtNumOrdine.TabIndex = 0;
+            txtNumOrdine.TextChanged += txtNumOrdine_TextChanged;
             // 
             // label1
             // 
@@ -163,11 +165,22 @@
             btnCartella.UseVisualStyleBackColor = true;
             btnCartella.Click += button1_Click;
             // 
+            // lblCarica
+            // 
+            lblCarica.AutoSize = true;
+            lblCarica.Location = new Point(313, 237);
+            lblCarica.Name = "lblCarica";
+            lblCarica.Size = new Size(145, 15);
+            lblCarica.TabIndex = 13;
+            lblCarica.Text = "CARICANDO...ATTENDERE";
+            lblCarica.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblCarica);
             Controls.Add(btnCartella);
             Controls.Add(label4);
             Controls.Add(txtNomeFileExcel);
@@ -204,5 +217,6 @@
         private TextBox txtNomeFileExcel;
         private Label label4;
         private Button btnCartella;
+        private Label lblCarica;
     }
 }

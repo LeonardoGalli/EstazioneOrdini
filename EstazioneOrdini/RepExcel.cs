@@ -28,23 +28,26 @@ namespace EstazioneOrdini
 
             x.Range["A1"].Value2 = "Style Code";
             x.Range["B1"].Value2 = "Style Description";
-            x.Range["F1"].Value2 = "Age Range";
-            x.Range["K1"].Value2 = "Retaile Price";
-            x.Range["M1"].Value2 = "Delivery Date";
-            x.Range["N1"].Value2 = "Made In";
-            x.Range["O1"].Value2 = "Color Description";
-            x.Range["Q1"].Value2 = "Weight (g)";
-            x.Range["T1"].Value2 = "EAN Code";
-            x.Range["U1"].Value2 = "Codice Articolo OVS";
-            x.Range["V1"].Value2 = "Colore OVS";
+            x.Range["D1"].Value2 = "Age Range";
+            x.Range["I1"].Value2 = "Retaile Price";
+            x.Range["K1"].Value2 = "Delivery Date";
+            x.Range["L1"].Value2 = "Made In";
+            x.Range["M1"].Value2 = "Color Description";
+            x.Range["O1"].Value2 = "Weight (g)";
+            x.Range["R1"].Value2 = "EAN Code";
+            x.Range["S1"].Value2 = "Codice Articolo OVS";
+            x.Range["T1"].Value2 = "Colore OVS";
 
-            x.Range["A1:K1"].Interior.Color = Color.Yellow;
-            x.Range["L1"].Interior.Color = Color.Gray;
-            x.Range["M1:T1"].Interior.Color = Color.Yellow;
-            x.Range["U1:V1"].Interior.Color = Color.Gray;
-            x.Range["W1"].Interior.Color = Color.Yellow;
+            x.Range["A1:I1"].Interior.Color = Color.Yellow;
+            x.Range["J1"].Interior.Color = Color.Gray;
+            x.Range["K1:R1"].Interior.Color = Color.Yellow;
+            x.Range["S1:T1"].Interior.Color = Color.Gray;
             x.Range["A1:W1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
             x.Range["C1"].ColumnWidth = 40;
+            //x.Range["U1:W1"].ColumnWidth = 0;
+
+            // levo i tre campi inutili
+            x.Range["U:W"].ClearContents();
 
             try
             {
@@ -54,7 +57,7 @@ namespace EstazioneOrdini
                 x.Range[$@"A2:A{aa + 1}"].Interior.Color = Color.LightGreen;
                 //x.Rows.AutoFit();
                 x.Columns["A:B"].AutoFit();
-                x.Columns["D:V"].AutoFit();
+                x.Columns["D:T"].AutoFit();
 
                 int valore_di_mezzo = 0;
                 int cellStartMerge = 2;
@@ -71,8 +74,8 @@ namespace EstazioneOrdini
 
                     Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)x.Range[x.Cells[cellStartMerge, 3], x.Cells[valore_di_mezzo + 1, 3]];
 
-                    float Left = (float)((double)oRange.Left);
-                    float Top = (float)((double)oRange.Top);
+                    float Left = (float)((double)oRange.Left + 1);
+                    float Top = (float)((double)oRange.Top + 1);
 
                     FileInfo fileArtwork = new FileInfo(impostazioni.ImagesPath + @"\" + item.FirstOrDefault().Artwork + ".jpg");
                     FileInfo file = new FileInfo(impostazioni.ImagesPath + @"\" + item.FirstOrDefault().Style_Code + ".jpg");
@@ -105,13 +108,13 @@ namespace EstazioneOrdini
                         float imageWidth = img.Width;
 
                         float rapporto = imageWidth / imageHeight;
-                        float HeightImage = 20 * (valore_di_mezzo - cellStartMerge + 1);
+                        float HeightImage = 17 * (valore_di_mezzo - cellStartMerge + 1);
 
-                        float WidthImage = rapporto * HeightImage;
-                        if (WidthImage > 215)
+                        float WidthImage = rapporto * HeightImage - 2;
+                        if (WidthImage > 213)
                         {
-                            WidthImage = 215;
-                            HeightImage = float.Parse("15,5") * (valore_di_mezzo - cellStartMerge + 1);
+                            WidthImage = 213;
+                            HeightImage = 16 * (valore_di_mezzo - cellStartMerge + 1);
                             x.Shapes.AddPicture(file.FullName, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, WidthImage, HeightImage);
                         }
                         else

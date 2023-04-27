@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Org.BouncyCastle.Tls;
 
 namespace EstazioneOrdini
 {
@@ -13,6 +14,21 @@ namespace EstazioneOrdini
             try
             {
                 float f = float.Parse(c);
+                return f;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static decimal StringToDecimal(string c)
+        {
+            try
+            {
+                decimal f = decimal.Parse(c);
                 return f;
             }
             catch (Exception)

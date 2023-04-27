@@ -1,6 +1,7 @@
 using EstazioneOrdini2.Model;
 using MathNet.Numerics.Optimization;
 using Microsoft.VisualBasic;
+using NPOI.SS.Formula.Functions;
 
 namespace EstazioneOrdini
 {
@@ -59,6 +60,7 @@ namespace EstazioneOrdini
 
             lblFatto.Visible = false;
             lblErrore.Visible = false;
+            lblCarica.Visible = true;
 
             if (numeroOrdine == "")
             {
@@ -75,7 +77,8 @@ namespace EstazioneOrdini
             if (lista.Count == 0)
             {
                 lblErrore.Visible = true;
-                txtNumOrdine.Text = "";
+                lblCarica.Visible = false;
+                //txtNumOrdine.Text = "";
                 return;
             }
 
@@ -86,13 +89,19 @@ namespace EstazioneOrdini
             }
             else
             {
-                MessageBox.Show("CARICARE PATH");
+                MessageBox.Show("CARICARE CARTELLA");
                 Close();
             }
 
-
-
             lblFatto.Visible = true;
+            lblCarica.Visible = false;
+        }
+
+        private void txtNumOrdine_TextChanged(object sender, EventArgs e)
+        {
+            lblFatto.Visible = false;
+            lblErrore.Visible = false;
+            //lblCarica.Visible = false;
         }
     }
 }

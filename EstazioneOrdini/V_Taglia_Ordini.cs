@@ -11,14 +11,12 @@ namespace EstazioneOrdini2.Model
         public string Style_Code { get; set; } // articolo
         public string Style_Description { get; set; } // descrizione
         public string Picture { get; set; } // immagine
-        public string Ordine { get; set; } // ordine
-        public string Progressivo { get; set; } // progressivo
         public string Age_Range { get; set; } // age
         public string MARCHIO { get; set; } // brand
         public string PERSONAGGIO { get; set; } // personaggio
         public string Gender { get; set; } // gender
         public string Commodity { get; set; } // tipo
-        public float Retail_Price { get; set; } // prezzo
+        public decimal Retail_Price { get; set; } // prezzo
         public float Costo { get; set; } // costo
         public string Delivery_Date { get; set; } // data consegna
         public string Made_In { get; set; } // nazione
@@ -30,6 +28,8 @@ namespace EstazioneOrdini2.Model
         public int EAN_Code { get; set; } // barcode
         public string Codice_Articolo_OVS { get; set; } // articolo ovs
         public int Colore_OVS { get; set; } // colore ovs
+        public string Ordine { get; set; } // ordine
+        public string Progressivo { get; set; } // progressivo
         public string Artwork { get; set; }
 
 
