@@ -25,12 +25,25 @@ namespace EstazioneOrdini2.Model
         public float Weight_g { get; set; } // peso
         public string Size { get; set; } // taglia
         public int Quantity { get; set; } // quantita
-        public int EAN_Code { get; set; } // barcode
+        public string EAN_Code { get; set; } // barcode
         public string Codice_Articolo_OVS { get; set; } // articolo ovs
         public int Colore_OVS { get; set; } // colore ovs
+       
+
+        public string commodity_ovs { get; set; }
+        public string macroCommodity { get; set; }
+        public string fitName { get; set; }
+        public string fit { get; set; }
+        public string tech1 { get; set; }
+        public string tech2 { get; set; }
+        public string tech3 { get; set; }
+        public string evidence1 { get; set; }
+        public string evidence2 { get; set; }
+        public string evidence3 { get; set; }
         public string Ordine { get; set; } // ordine
         public string Progressivo { get; set; } // progressivo
         public string Artwork { get; set; }
+
 
 
     }

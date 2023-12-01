@@ -37,17 +37,27 @@ namespace EstazioneOrdini
             x.Range["R1"].Value2 = "EAN Code";
             x.Range["S1"].Value2 = "Codice Articolo OVS";
             x.Range["T1"].Value2 = "Colore OVS";
+            x.Range["U1"].Value2 = "Commodity OVS";
+            x.Range["V1"].Value2 = "Macro Commodity";
+            x.Range["W1"].Value2 = "Fit Name";
+            x.Range["X1"].Value2 = "Fit";
+            x.Range["Y1"].Value2 = "Tech1";
+            x.Range["Z1"].Value2 = "Tech2";
+            x.Range["AA1"].Value2 = "Tech3";
+            x.Range["AB1"].Value2 = "Evidence1";
+            x.Range["AC1"].Value2 = "Evidence2";
+            x.Range["AD1"].Value2 = "Evidence3";
 
             x.Range["A1:I1"].Interior.Color = Color.Yellow;
             x.Range["J1"].Interior.Color = Color.Gray;
             x.Range["K1:R1"].Interior.Color = Color.Yellow;
             x.Range["S1:T1"].Interior.Color = Color.Gray;
-            x.Range["A1:W1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            x.Range["A1:AD1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
             x.Range["C1"].ColumnWidth = 40;
             //x.Range["U1:W1"].ColumnWidth = 0;
 
             // levo i tre campi inutili
-            x.Range["U:W"].ClearContents();
+            x.Range["AE:AG"].ClearContents();
 
             try
             {
@@ -57,7 +67,7 @@ namespace EstazioneOrdini
                 x.Range[$@"A2:A{aa + 1}"].Interior.Color = Color.LightGreen;
                 //x.Rows.AutoFit();
                 x.Columns["A:B"].AutoFit();
-                x.Columns["D:T"].AutoFit();
+                x.Columns["D:AD"].AutoFit();
 
                 int valore_di_mezzo = 0;
                 int cellStartMerge = 2;
